@@ -1,2 +1,2 @@
-# WebUserIW
- User interface units for be Intraweb software
+# UserIW
+ User database for Intraweb for various online database by Bruce Eglington
