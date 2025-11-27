@@ -60,20 +60,34 @@ const
 //var
   //AccessRights : string;
 begin
-  // set temporarily to avoid login each time
-  {
-  edUserID.Text := 'BruceEglington';
-  edPassword.Text := 'tamryn';
-  }
-  //UserSession.UserAccessRights.Text := '';
-  //dmUser.SetDeveloperData('Login activated');
   if ValidateSignIn then
   begin
     ResetLabels;
-    if CheckUser(edUserID.Text, edPassword.Text) then
-    begin
-      UserSession.IsDeveloper := true; //temporary to check some stuff
-      dmUser.SetDeveloperData('accepted');
+      //UserSession.IsDeveloper := true; //temporary to check some stuff
+      //dmUser.SetDeveloperData('before accepted');
+      //dmUser.SetDeveloperData(edUserID.Text);
+      //dmUser.SetDeveloperData(edPassword.Text);
+      //dmUser.SetDeveloperData(dmUser.sqlcWebUser.Params.Values['Database']);
+    //if CheckUser(edUserID.Text, edPassword.Text) then
+    //begin
+      UserSession.UserPassword := edPassword.Text;
+      UserSession.UserID := uppercase(edUserID.Text);
+      UserSession.IsDeveloper := true;
+      //dmUser.SetDeveloperData('accepted');
+      //dmUser.SetDeveloperData(edUserID.Text);
+      //dmUser.SetDeveloperData(edPassword.Text);
+      //dmUser.SetDeveloperData('dmUser');
+      //dmUser.SetDeveloperData(dmUser.sqlcWebUser.Params.Values['Database']);
+      //dmUser.SetDeveloperData(dmUser.sqlcWebUser.Params.Values['ProductName']);
+      //dmUser.SetDeveloperData(dmUser.sqlcWebUser.Params.Values['VendorLib']);
+      //dmUser.SetDeveloperData(dmUser.sqlcWebUser.Params.Values['LibraryName']);
+      //dmUser.SetDeveloperData(dmUser.sqlcWebUser.Params.Values['CharSet']);
+      //dmUser.SetDeveloperData('dmOpt');
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['Database']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['ProductName']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['VendorLib']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['LibraryName']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['CharSet']);
       //dmUser.SetDeveloperData(tmpcheckstr);
       //WebApplication.ShowMessage('accepted');
       UserSession.UserPassword := edPassword.Text;
@@ -86,25 +100,31 @@ begin
       //  Name := 'USERID';
       //  Value := UserSession.UserID;
       //  Path := WebApplication.AppURLBase;
-      //  Expires := Now + SessionExpiryTime;
+      //  Expires := TDateTime.NowUTC + SessionExpiryTime;
       //end;
       //dmUser.SetDeveloperData('after ValidateSignIn');
       //UserSession.AfterLogin;  omitted 20200325
       //dmUser.SetDeveloperData('after AfterLogin');
+      //dmUser.SetDeveloperData('dmOpt 2');
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['Database']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['ProductName']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['VendorLib']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['LibraryName']);
+      //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['CharSet']);
 
       if CheckUserPayedUp(UserSession.UserID, UserSession.ThisProgram) then
       begin
-        //GetUserAccessRights2(UserSession.UserID, UserSession.UserPassword, AccessRights);
         UserSession.AfterLogin;
       end else
       begin
         TISFRenew.Create(WebApplication).Show;
         Release;
       end;
-    end else
-    begin
-      lblUserInvalid.Caption := 'Invalid user name or password.';
-    end;
+      //dmUser.SetDeveloperData('after return from AfterLogin');
+    //end else
+    //begin
+    //  lblUserInvalid.Caption := 'Invalid user name or password.';
+    //end;
   end;
 end;
 

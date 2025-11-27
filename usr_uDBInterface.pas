@@ -157,7 +157,7 @@ var
   tmpi : integer;
 begin
   dmUser.qNumTimesUsed.Close;
-  dmUser.qNumTimesUsed.ParamByName('SOFTWAREID').AsString := SoftwareID;
+  dmUser.qNumTimesUsed.ParamByName('SOFTWAREID').AsWideString := SoftwareID;
   dmUser.cdsNumTimesUsed.Close;
   dmUser.cdsNumTimesUsed.Open;
   try
@@ -290,32 +290,31 @@ var
   AccessRights : string;
   tmpStrList : TStringList;
   i : integer;
+  tMax : integer;
 begin
-  dmUser.qUserSpecific.Close;
-  dmUser.qUserSpecific.ParamByName('USERID').AsString := trim(AUserID);
-  dmUser.qUserSpecific.ParamByName('UserPassword').AsString := trim(APassword);
+  dmUser.qUserSpecific.ParamByName('USERID').AsWideString := trim(AUserID);
+  dmUser.qUserSpecific.ParamByName('UserPassword').AsWideString := trim(APassword);
   dmUser.cdsUserSpecific.Close;
   dmUser.cdsUserSpecific.Open;
   UserSession.UserDisplayName := dmUser.cdsUserSpecificUSERDISPLAYNAME.AsString;
+  //dmUser.SetDeveloperData('User specific');
+  //dmUser.SetDeveloperData(dmUser.cdsUserSpecificUSERACCESSRIGHTS.AsWideString);
   AccessRights := dmUser.cdsUserSpecificUSERACCESSRIGHTS.AsString;
+  //dmUser.SetDeveloperData('AccessRights string');
+  //dmUser.SetDeveloperData(AccessRights);
   dmUser.cdsUserSpecific.Close;
   if Trim(AccessRights) = '' then Exit;  // Can not look for blank value so set false
   try
+    //dmUser.SetDeveloperData('Checking trimmed AccessRights');
+    //dmUser.SetDeveloperData(AccessRights);
     tmpStrList := TStringList.Create;
     // Break access rights up into a list
     // ExtractStrings([';',','],[],PChar(AccessRights),tmpStrList); //original Delphi 2006 version
-    ExtractStrings([';',','],[],PWideChar(AccessRights),tmpStrList); // Delphi 2010 version
+    ExtractStrings([';',','],[' '],PWideChar(AccessRights),tmpStrList); // Delphi 2010 version
+    //dmUser.SetDeveloperData(tmpStrList.Text);
     for i := 0 to tmpStrList.Count - 1 do tmpStrList.Strings[i] := Trim(tmpStrList.Strings[i]);
-    if UserSession.IsDeveloper and TestAccessRights then
-    begin
-      dmUser.cdsDevInfo.Open;
-      dmUser.cdsDevInfo.Insert;
-      //dmUser.cdsDevInfoDATESAVED.AsDateTime := Now;
-      dmUser.cdsDevInfoDATESAVED.AsDateTime := dmUser.GetUTCDateTime;
-      dmUser.cdsDevInfoQUERYCHECK.AsString := tmpStrList.Text+' tmpStrList CheckRights '+AProg;
-      dmUser.cdsDevInfo.ApplyUpdates(0);
-      dmUser.cdsDevInfo.Close;
-    end;
+    //for i := 0 to tmpStrList.Count - 1 do dmUser.SetDeveloperData(tmpStrList.Strings[i]);
+    //dmUser.SetDeveloperData('Finished Checking trimmed AccessRights');
     if (tmpStrList.IndexOf(ValueForCanView) >= 0) then UserSession.CanView := true;
     if (tmpStrList.IndexOf(ValueForCanViewPlus) >= 0) then UserSession.CanViewPlus := true;
     if (tmpStrList.IndexOf(ValueForCanModifyPlus) >= 0) then UserSession.CanModifyPlus := true;
@@ -325,6 +324,10 @@ begin
     if (tmpStrList.IndexOf(ValueForIsDeveloper) >= 0) then UserSession.IsDeveloper := true;
     if (tmpStrList.IndexOf(ValueForCanValidate) >= 0) then UserSession.CanValidate := true;
     if (tmpStrList.IndexOf(ValueForCanExport) >= 0) then UserSession.CanExport := true;
+    if UserSession.IsDeveloper and TestAccessRights then
+    begin
+      //dmUser.SetDeveloperData(tmpStrList.Text+' tmpStrList CheckRights '+AProg);
+    end;
   finally
     FreeAndNil(tmpStrList);
   end;
@@ -332,3 +335,4 @@ begin
 end;
 
 end.
+

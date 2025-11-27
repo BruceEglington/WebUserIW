@@ -3,6 +3,7 @@ unit usr_cookies;
 interface
 
 uses classes,
+System.DateUtils,
   IW.HTTP.Cookie,
   IW.Common.Lists,
   iwinit,sysutils;
@@ -21,7 +22,7 @@ var
 begin
   //windows.GetSystemTime(GMTST);
   //result:=Sysutils.SystemTimeToDateTime(GMTST);
-  result := Now;
+  result := TDateTime.NowUTC;
 end;
 
 function GetCookieValue(sName: String): String;

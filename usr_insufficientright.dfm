@@ -18,29 +18,29 @@ object ISFInsufficientRights: TISFInsufficientRights
   DesignLeft = 2
   DesignTop = 2
   object iwbOK: TIWButton
+    AlignWithMargins = False
     Left = 397
     Top = 146
     Width = 105
     Height = 25
     Caption = 'OK'
     Color = clWebLIGHTGREEN
-    Font.Color = clNone
     Font.FontName = 'Verdana'
     Font.Size = 9
-    Font.Style = []
+    Font.PxSize = 12
     FriendlyName = 'iwbOK'
     OnClick = iwbOKClick
   end
   object rectLeft: TIWRectangle
+    AlignWithMargins = False
     Left = 0
     Top = 0
     Width = 83
     Height = 202
     Align = alLeft
     ZIndex = 1
+    Font.PxSize = 13
     Font.Color = clWebBLACK
-    Font.Size = 10
-    Font.Style = []
     BorderOptions.Width = 0
     FriendlyName = 'rectLeft'
     Color = clWebLAVENDER
@@ -48,15 +48,17 @@ object ISFInsufficientRights: TISFInsufficientRights
     VAlign = vaMiddle
   end
   object IWLabel5: TIWLabel
+    AlignWithMargins = False
     Left = 112
     Top = 39
     Width = 734
     Height = 20
     Alignment = taCenter
-    Font.Color = clWebRED
     Font.FontName = 'Verdana'
     Font.Size = 13
     Font.Style = [fsBold]
+    Font.PxSize = 17
+    Font.Color = clWebRED
     HasTabOrder = False
     FriendlyName = 'IWLabel1'
     Caption = 
@@ -64,15 +66,16 @@ object ISFInsufficientRights: TISFInsufficientRights
       ' or feature.'
   end
   object IWLabel1: TIWLabel
+    AlignWithMargins = False
     Left = 231
     Top = 87
     Width = 437
     Height = 14
     Alignment = taCenter
-    Font.Color = clWebBLACK
     Font.FontName = 'Verdana'
     Font.Size = 9
-    Font.Style = []
+    Font.PxSize = 12
+    Font.Color = clWebBLACK
     HasTabOrder = False
     FriendlyName = 'IWLabel1'
     Caption = 

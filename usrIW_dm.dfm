@@ -1,5 +1,5 @@
 object dmUser: TdmUser
-  Height = 621
+  Height = 732
   Width = 813
   object WebUser: TSQLQuery
     MaxBlobSize = -1
@@ -10,23 +10,25 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 104
     Top = 16
-    object WebUserUSERID: TStringField
+    object WebUserUSERID: TWideStringField
       FieldName = 'USERID'
       Required = True
+      FixedChar = True
     end
-    object WebUserUSERPASSWORD: TStringField
+    object WebUserUSERPASSWORD: TWideStringField
       FieldName = 'USERPASSWORD'
       Required = True
+      FixedChar = True
       Size = 8
     end
-    object WebUserUSERACCESSRIGHTS: TMemoField
-      FieldName = 'USERACCESSRIGHTS'
-      BlobType = ftMemo
-      Size = -1
-    end
-    object WebUserUSERDISPLAYNAME: TStringField
+    object WebUserUSERDISPLAYNAME: TWideStringField
       FieldName = 'USERDISPLAYNAME'
       Required = True
+      FixedChar = True
+    end
+    object WebUserUSERACCESSRIGHTS: TBlobField
+      FieldName = 'USERACCESSRIGHTS'
+      Size = -1
     end
   end
   object dspWebUser: TDataSetProvider
@@ -40,27 +42,24 @@ object dmUser: TdmUser
     ProviderName = 'dspWebUser'
     Left = 160
     Top = 16
-    object cdsWebUserUSERID: TStringField
-      DisplayLabel = 'User ID'
+    object cdsWebUserUSERID: TWideStringField
       FieldName = 'USERID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
-    object cdsWebUserUSERPASSWORD: TStringField
-      DisplayLabel = 'Password'
+    object cdsWebUserUSERPASSWORD: TWideStringField
       FieldName = 'USERPASSWORD'
       Required = True
+      FixedChar = True
       Size = 8
     end
-    object cdsWebUserUSERDISPLAYNAME: TStringField
-      DisplayLabel = 'Display Name'
+    object cdsWebUserUSERDISPLAYNAME: TWideStringField
       FieldName = 'USERDISPLAYNAME'
       Required = True
+      FixedChar = True
     end
-    object cdsWebUserUSERACCESSRIGHTS: TMemoField
-      DisplayLabel = 'Access Rights'
+    object cdsWebUserUSERACCESSRIGHTS: TBlobField
       FieldName = 'USERACCESSRIGHTS'
-      BlobType = ftMemo
     end
   end
   object dsWebUser: TDataSource
@@ -79,27 +78,24 @@ object dmUser: TdmUser
     ProviderName = 'dspUserSpecific'
     Left = 162
     Top = 66
-    object cdsUserSpecificUSERID: TStringField
-      DisplayLabel = 'User ID'
+    object cdsUserSpecificUSERID: TWideStringField
       FieldName = 'USERID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
-    object cdsUserSpecificUSERPASSWORD: TStringField
-      DisplayLabel = 'Password'
+    object cdsUserSpecificUSERPASSWORD: TWideStringField
       FieldName = 'USERPASSWORD'
       Required = True
+      FixedChar = True
       Size = 8
     end
-    object cdsUserSpecificUSERDISPLAYNAME: TStringField
-      DisplayLabel = 'Display Name'
+    object cdsUserSpecificUSERDISPLAYNAME: TWideStringField
       FieldName = 'USERDISPLAYNAME'
       Required = True
+      FixedChar = True
     end
-    object cdsUserSpecificUSERACCESSRIGHTS: TMemoField
-      DisplayLabel = 'Access Rights'
+    object cdsUserSpecificUSERACCESSRIGHTS: TBlobField
       FieldName = 'USERACCESSRIGHTS'
-      BlobType = ftMemo
     end
   end
   object dsUserSpecific: TDataSource
@@ -127,12 +123,12 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 104
     Top = 112
-    object UserInfoUSERID: TStringField
+    object UserInfoUSERID: TWideStringField
       FieldName = 'USERID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object UserInfoSOFTWAREID: TStringField
+    object UserInfoSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
@@ -145,7 +141,7 @@ object dmUser: TdmUser
       FieldName = 'SESSIONINFO'
       Size = -1
     end
-    object UserInfoBROWSERUSED: TStringField
+    object UserInfoBROWSERUSED: TWideStringField
       FieldName = 'BROWSERUSED'
       Size = 200
     end
@@ -161,12 +157,12 @@ object dmUser: TdmUser
     ProviderName = 'dspUserInfo'
     Left = 160
     Top = 112
-    object cdsUserInfoUSERID: TStringField
+    object cdsUserInfoUSERID: TWideStringField
       FieldName = 'USERID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object cdsUserInfoSOFTWAREID: TStringField
+    object cdsUserInfoSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
@@ -178,7 +174,7 @@ object dmUser: TdmUser
     object cdsUserInfoSESSIONINFO: TBlobField
       FieldName = 'SESSIONINFO'
     end
-    object cdsUserInfoBROWSERUSED: TStringField
+    object cdsUserInfoBROWSERUSED: TWideStringField
       FieldName = 'BROWSERUSED'
       Size = 200
     end
@@ -197,15 +193,15 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 104
     Top = 162
-    object qUserContactUSERID: TStringField
+    object qUserContactUSERID: TWideStringField
       FieldName = 'USERID'
       Required = True
     end
-    object qUserContactLASTNAME: TStringField
+    object qUserContactLASTNAME: TWideStringField
       FieldName = 'LASTNAME'
       Required = True
     end
-    object qUserContactFIRSTNAME: TStringField
+    object qUserContactFIRSTNAME: TWideStringField
       FieldName = 'FIRSTNAME'
       Required = True
     end
@@ -213,7 +209,7 @@ object dmUser: TdmUser
       FieldName = 'REGISTRATIONDATE'
       Required = True
     end
-    object qUserContactEMAILADDRESS: TStringField
+    object qUserContactEMAILADDRESS: TWideStringField
       FieldName = 'EMAILADDRESS'
       Required = True
       Size = 200
@@ -230,18 +226,18 @@ object dmUser: TdmUser
     ProviderName = 'dspUserContact'
     Left = 160
     Top = 162
-    object cdsUserContactUSERID: TStringField
+    object cdsUserContactUSERID: TWideStringField
       DisplayLabel = 'User ID'
       FieldName = 'USERID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object cdsUserContactLASTNAME: TStringField
+    object cdsUserContactLASTNAME: TWideStringField
       DisplayLabel = 'Lastname'
       FieldName = 'LASTNAME'
       Required = True
     end
-    object cdsUserContactFIRSTNAME: TStringField
+    object cdsUserContactFIRSTNAME: TWideStringField
       DisplayLabel = 'Firstname'
       FieldName = 'FIRSTNAME'
       Required = True
@@ -251,7 +247,7 @@ object dmUser: TdmUser
       FieldName = 'REGISTRATIONDATE'
       Required = True
     end
-    object cdsUserContactEMAILADDRESS: TStringField
+    object cdsUserContactEMAILADDRESS: TWideStringField
       DisplayLabel = 'E-mail address'
       FieldName = 'EMAILADDRESS'
       Required = True
@@ -266,22 +262,21 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 104
     Top = 214
-    object NewUserUSERID: TStringField
+    object NewUserUSERID: TWideStringField
       FieldName = 'USERID'
       Required = True
     end
-    object NewUserUSERPASSWORD: TStringField
+    object NewUserUSERPASSWORD: TWideStringField
       FieldName = 'USERPASSWORD'
       Required = True
       Size = 8
     end
-    object NewUserUSERDISPLAYNAME: TStringField
+    object NewUserUSERDISPLAYNAME: TWideStringField
       FieldName = 'USERDISPLAYNAME'
       Required = True
     end
-    object NewUserUSERACCESSRIGHTS: TMemoField
+    object NewUserUSERACCESSRIGHTS: TBlobField
       FieldName = 'USERACCESSRIGHTS'
-      BlobType = ftMemo
       Size = -1
     end
   end
@@ -297,27 +292,26 @@ object dmUser: TdmUser
     ProviderName = 'dspNewUser'
     Left = 158
     Top = 214
-    object cdsNewUserUSERID: TStringField
+    object cdsNewUserUSERID: TWideStringField
       DisplayLabel = 'User ID'
       FieldName = 'USERID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object cdsNewUserUSERPASSWORD: TStringField
+    object cdsNewUserUSERPASSWORD: TWideStringField
       DisplayLabel = 'Password'
       FieldName = 'USERPASSWORD'
       Required = True
       Size = 8
     end
-    object cdsNewUserUSERDISPLAYNAME: TStringField
+    object cdsNewUserUSERDISPLAYNAME: TWideStringField
       DisplayLabel = 'Display Name'
       FieldName = 'USERDISPLAYNAME'
       Required = True
     end
-    object cdsNewUserUSERACCESSRIGHTS: TMemoField
+    object cdsNewUserUSERACCESSRIGHTS: TBlobField
       DisplayLabel = 'Access Rights'
       FieldName = 'USERACCESSRIGHTS'
-      BlobType = ftMemo
     end
   end
   object qPrograms: TSQLQuery
@@ -328,11 +322,11 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 102
     Top = 262
-    object qProgramsSOFTWAREID: TStringField
+    object qProgramsSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       Required = True
     end
-    object qProgramsSOFTWARENAME: TStringField
+    object qProgramsSOFTWARENAME: TWideStringField
       FieldName = 'SOFTWARENAME'
       Required = True
       Size = 50
@@ -349,13 +343,13 @@ object dmUser: TdmUser
     ProviderName = 'dspPrograms'
     Left = 158
     Top = 262
-    object cdsProgramsSOFTWAREID: TStringField
+    object cdsProgramsSOFTWAREID: TWideStringField
       DisplayLabel = 'Software ID'
       FieldName = 'SOFTWAREID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object cdsProgramsSOFTWARENAME: TStringField
+    object cdsProgramsSOFTWARENAME: TWideStringField
       DisplayLabel = 'Software Name'
       FieldName = 'SOFTWARENAME'
       Required = True
@@ -382,22 +376,24 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 104
     Top = 66
-    object qUserSpecificUSERID: TStringField
+    object qUserSpecificUSERID: TWideStringField
       FieldName = 'USERID'
       Required = True
+      FixedChar = True
     end
-    object qUserSpecificUSERPASSWORD: TStringField
+    object qUserSpecificUSERPASSWORD: TWideStringField
       FieldName = 'USERPASSWORD'
       Required = True
+      FixedChar = True
       Size = 8
     end
-    object qUserSpecificUSERDISPLAYNAME: TStringField
+    object qUserSpecificUSERDISPLAYNAME: TWideStringField
       FieldName = 'USERDISPLAYNAME'
       Required = True
+      FixedChar = True
     end
-    object qUserSpecificUSERACCESSRIGHTS: TMemoField
+    object qUserSpecificUSERACCESSRIGHTS: TBlobField
       FieldName = 'USERACCESSRIGHTS'
-      BlobType = ftMemo
       Size = -1
     end
   end
@@ -422,7 +418,7 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 394
     Top = 16
-    object qProgressSOFTWAREID: TStringField
+    object qProgressSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       Required = True
     end
@@ -434,9 +430,8 @@ object dmUser: TdmUser
       FieldName = 'PROGRESSDATE'
       Required = True
     end
-    object qProgressPROGRESSDETAILS: TMemoField
+    object qProgressPROGRESSDETAILS: TBlobField
       FieldName = 'PROGRESSDETAILS'
-      BlobType = ftMemo
       Size = -1
     end
   end
@@ -453,7 +448,7 @@ object dmUser: TdmUser
     ReadOnly = True
     Left = 450
     Top = 16
-    object cdsProgressSOFTWAREID: TStringField
+    object cdsProgressSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       Required = True
     end
@@ -465,9 +460,8 @@ object dmUser: TdmUser
       FieldName = 'PROGRESSDATE'
       Required = True
     end
-    object cdsProgressPROGRESSDETAILS: TMemoField
+    object cdsProgressPROGRESSDETAILS: TBlobField
       FieldName = 'PROGRESSDETAILS'
-      BlobType = ftMemo
     end
   end
   object dsProgress: TDataSource
@@ -479,7 +473,7 @@ object dmUser: TdmUser
     MaxBlobSize = -1
     Params = <
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'SoftwareID'
         ParamType = ptInput
       end>
@@ -489,9 +483,10 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 102
     Top = 318
-    object qNumTimesUsedSOFTWAREID: TStringField
+    object qNumTimesUsedSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       Required = True
+      FixedChar = True
     end
     object qNumTimesUsedNUMTIMESUSED: TIntegerField
       FieldName = 'NUMTIMESUSED'
@@ -510,9 +505,10 @@ object dmUser: TdmUser
     ProviderName = 'dspNumTimesUsed'
     Left = 158
     Top = 318
-    object cdsNumTimesUsedSOFTWAREID: TStringField
+    object cdsNumTimesUsedSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       Required = True
+      FixedChar = True
     end
     object cdsNumTimesUsedNUMTIMESUSED: TIntegerField
       FieldName = 'NUMTIMESUSED'
@@ -555,11 +551,10 @@ object dmUser: TdmUser
     ProviderName = 'dspForgotten'
     Left = 476
     Top = 74
-    object cdsForgottenUSERID: TStringField
-      DisplayLabel = 'User ID'
+    object cdsForgottenUSERID: TWideStringField
       FieldName = 'USERID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
     object cdsForgottenqForgottenDetails: TDataSetField
       FieldName = 'qForgottenDetails'
@@ -599,13 +594,12 @@ object dmUser: TdmUser
     Params = <>
     Left = 480
     Top = 126
-    object cdsForgottenDetailsUSERID: TStringField
-      DisplayLabel = 'User ID'
+    object cdsForgottenDetailsUSERID: TWideStringField
       FieldName = 'USERID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
-    object cdsForgottenDetailsUSERPASSWORD: TStringField
+    object cdsForgottenDetailsUSERPASSWORD: TWideStringField
       DisplayLabel = 'Password'
       FieldName = 'USERPASSWORD'
       Required = True
@@ -652,11 +646,11 @@ object dmUser: TdmUser
     ProviderName = 'dspCookieInfo'
     Left = 160
     Top = 370
-    object cdsCookieInfoUSERID: TStringField
+    object cdsCookieInfoUSERID: TWideStringField
       FieldName = 'USERID'
       Required = True
     end
-    object cdsCookieInfoSOFTWAREID: TStringField
+    object cdsCookieInfoSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       Required = True
     end
@@ -762,34 +756,37 @@ object dmUser: TdmUser
     ProviderName = 'dspUserAccount'
     Left = 436
     Top = 216
-    object cdsUserAccountUSERID: TStringField
+    object cdsUserAccountUSERID: TWideStringField
       FieldName = 'USERID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
-    object cdsUserAccountSOFTWAREID: TStringField
+    object cdsUserAccountSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
-    object cdsUserAccountACCOUNTID: TStringField
+    object cdsUserAccountACCOUNTID: TWideStringField
       FieldName = 'ACCOUNTID'
       Required = True
+      FixedChar = True
     end
-    object cdsUserAccountSOFTWARENAME: TStringField
+    object cdsUserAccountSOFTWARENAME: TWideStringField
       FieldName = 'SOFTWARENAME'
       Required = True
+      FixedChar = True
       Size = 50
     end
-    object cdsUserAccountUSEACCOUNTS: TStringField
+    object cdsUserAccountUSEACCOUNTS: TWideStringField
       FieldName = 'USEACCOUNTS'
       Required = True
       FixedChar = True
       Size = 1
     end
-    object cdsUserAccountMEMTYPEID: TStringField
+    object cdsUserAccountMEMTYPEID: TWideStringField
       FieldName = 'MEMTYPEID'
       Required = True
+      FixedChar = True
       Size = 5
     end
   end
@@ -799,14 +796,15 @@ object dmUser: TdmUser
     ProviderName = 'dspAccounts'
     Left = 432
     Top = 260
-    object cdsAccountsACCOUNTID: TStringField
+    object cdsAccountsACCOUNTID: TWideStringField
       FieldName = 'ACCOUNTID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
-    object cdsAccountsACCOUNTNAME: TStringField
+    object cdsAccountsACCOUNTNAME: TWideStringField
       FieldName = 'ACCOUNTNAME'
       Required = True
+      FixedChar = True
       Size = 50
     end
     object cdsAccountsDATESTARTED: TSQLTimeStampField
@@ -814,15 +812,16 @@ object dmUser: TdmUser
       Required = True
       DisplayFormat = 'ddddd'
     end
-    object cdsAccountsMEMTYPEID: TStringField
-      FieldName = 'MEMTYPEID'
-      Required = True
-      Size = 5
-    end
     object cdsAccountsVALIDUNTIL: TSQLTimeStampField
       FieldName = 'VALIDUNTIL'
       Required = True
       DisplayFormat = 'ddddd'
+    end
+    object cdsAccountsMEMTYPEID: TWideStringField
+      FieldName = 'MEMTYPEID'
+      Required = True
+      FixedChar = True
+      Size = 5
     end
   end
   object cdsMemberType: TClientDataSet
@@ -831,15 +830,16 @@ object dmUser: TdmUser
     ProviderName = 'dspMemberType'
     Left = 436
     Top = 308
-    object cdsMemberTypeMEMTYPEID: TStringField
+    object cdsMemberTypeMEMTYPEID: TWideStringField
       FieldName = 'MEMTYPEID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
       Size = 5
     end
-    object cdsMemberTypeMEMBERTYPE: TStringField
+    object cdsMemberTypeMEMBERTYPE: TWideStringField
       FieldName = 'MEMBERTYPE'
       Required = True
+      FixedChar = True
       Size = 30
     end
     object cdsMemberTypeSUBSCRIPTION: TFloatField
@@ -889,14 +889,16 @@ object dmUser: TdmUser
     ProviderName = 'dspMemberTypes'
     Left = 156
     Top = 508
-    object cdsMemberTypesMEMTYPEID: TStringField
+    object cdsMemberTypesMEMTYPEID: TWideStringField
       FieldName = 'MEMTYPEID'
       Required = True
+      FixedChar = True
       Size = 5
     end
-    object cdsMemberTypesMEMBERTYPE: TStringField
+    object cdsMemberTypesMEMBERTYPE: TWideStringField
       FieldName = 'MEMBERTYPE'
       Required = True
+      FixedChar = True
       Size = 30
     end
     object cdsMemberTypesSUBSCRIPTION: TFloatField
@@ -942,38 +944,44 @@ object dmUser: TdmUser
     ProviderName = 'dspThisProgram'
     Left = 158
     Top = 458
-    object cdsThisProgramSOFTWAREID: TStringField
+    object cdsThisProgramSOFTWAREID: TWideStringField
       FieldName = 'SOFTWAREID'
       Required = True
+      FixedChar = True
     end
-    object cdsThisProgramSOFTWARENAME: TStringField
+    object cdsThisProgramSOFTWARENAME: TWideStringField
       FieldName = 'SOFTWARENAME'
       Required = True
+      FixedChar = True
       Size = 50
     end
-    object cdsThisProgramUSEACCOUNTS: TStringField
+    object cdsThisProgramUSEACCOUNTS: TWideStringField
       FieldName = 'USEACCOUNTS'
       Required = True
       FixedChar = True
       Size = 1
     end
-    object cdsThisProgramDEFAULTACCOUNTID: TStringField
+    object cdsThisProgramDEFAULTACCOUNTID: TWideStringField
       FieldName = 'DEFAULTACCOUNTID'
       Required = True
+      FixedChar = True
     end
-    object cdsThisProgramEMAILDEVELOPER: TStringField
+    object cdsThisProgramEMAILDEVELOPER: TWideStringField
       FieldName = 'EMAILDEVELOPER'
       Required = True
+      FixedChar = True
       Size = 200
     end
-    object cdsThisProgramEMAILADMINISTRATOR: TStringField
+    object cdsThisProgramEMAILADMINISTRATOR: TWideStringField
       FieldName = 'EMAILADMINISTRATOR'
       Required = True
+      FixedChar = True
       Size = 200
     end
-    object cdsThisProgramURLONTERMINATE: TStringField
+    object cdsThisProgramURLONTERMINATE: TWideStringField
       FieldName = 'URLONTERMINATE'
       Required = True
+      FixedChar = True
       Size = 200
     end
   end
@@ -1012,12 +1020,14 @@ object dmUser: TdmUser
       FieldName = 'MONTHNO'
       Required = True
     end
-    object cdsMonthsMONTHID: TStringField
+    object cdsMonthsMONTHID: TWideStringField
       FieldName = 'MONTHID'
+      FixedChar = True
       Size = 3
     end
-    object cdsMonthsMONTHNAME: TStringField
+    object cdsMonthsMONTHNAME: TWideStringField
       FieldName = 'MONTHNAME'
+      FixedChar = True
       Size = 10
     end
   end
@@ -1060,25 +1070,19 @@ object dmUser: TdmUser
     Params.Strings = (
       'VendorLibOsx=libfbclient.dylib'
       'GetDriverFunc=getSQLDriverFirebird'
-      'LibraryName=dbexpida41.dll'
-      'VendorLib=fbclient.dll'
-      'DataBase=bromo2.usask.ca:s:\data\firebird\usercontrol2021v30.fdb'
+      'LibraryName=c:\exe64\dbexpida41.dll'
+      'VendorLib=c:\exe64\fbclient.dll'
+      'DataBase=c:\data\firebird\usercontrol2025v50_utf8.fdb'
       'User_Name=SYSDBA'
       'Password=V0lcano3^'
       'SQLDialect=3'
-      'BlobSize=-1'
-      'ErrorResourceFile='
       'LocaleCode=0000'
       'DevartFirebird TransIsolation=ReadCommitted'
       'ProductName=DevartFirebird'
-      
-        'DriverPackageLoader=TDBXDynalinkDriverLoader,DBXCommonDriver260.' +
-        'bpl'
-      
-        'MetaDataPackageLoader=TDBXDevartInterBaseMetaDataCommandFactory,' +
-        'DbxDevartInterBaseDriver260.bpl'
       'DriverUnit=DbxDevartInterBase'
-      'EnableBCD=false')
+      'Charset=UTF8'
+      'UseUnicode=true'
+      '')
     Left = 32
     Top = 8
   end
@@ -1135,26 +1139,6 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 616
     Top = 232
-    object qUserMaxOutputRecordsUSERID: TStringField
-      FieldName = 'USERID'
-      Required = True
-    end
-    object qUserMaxOutputRecordsDOWNLOADTYPEID: TIntegerField
-      FieldName = 'DOWNLOADTYPEID'
-      Required = True
-    end
-    object qUserMaxOutputRecordsDOWNLOADTYPE: TStringField
-      FieldName = 'DOWNLOADTYPE'
-      ProviderFlags = []
-      ReadOnly = True
-      Size = 50
-    end
-    object qUserMaxOutputRecordsMAXALLOWED: TFMTBCDField
-      FieldName = 'MAXALLOWED'
-      Required = True
-      Precision = 20
-      Size = 0
-    end
   end
   object dspUserMaxOutputRecords: TDataSetProvider
     DataSet = qUserMaxOutputRecords
@@ -1167,25 +1151,26 @@ object dmUser: TdmUser
     ProviderName = 'dspUserMaxOutputRecords'
     Left = 680
     Top = 232
-    object cdsUserMaxOutputRecordsUSERID: TStringField
+    object cdsUserMaxOutputRecordsUSERID: TWideStringField
       FieldName = 'USERID'
       Required = True
+      FixedChar = True
     end
     object cdsUserMaxOutputRecordsDOWNLOADTYPEID: TIntegerField
       FieldName = 'DOWNLOADTYPEID'
       Required = True
+    end
+    object cdsUserMaxOutputRecordsDOWNLOADTYPE: TWideStringField
+      FieldName = 'DOWNLOADTYPE'
+      Required = True
+      FixedChar = True
+      Size = 50
     end
     object cdsUserMaxOutputRecordsMAXALLOWED: TFMTBCDField
       FieldName = 'MAXALLOWED'
       Required = True
       Precision = 20
       Size = 0
-    end
-    object cdsUserMaxOutputRecordsDOWNLOADTYPE: TStringField
-      FieldName = 'DOWNLOADTYPE'
-      ProviderFlags = []
-      ReadOnly = True
-      Size = 50
     end
   end
   object dsUserMaxOutputRecords: TDataSource
@@ -1215,27 +1200,24 @@ object dmUser: TdmUser
     SQLConnection = sqlcWebUser
     Left = 616
     Top = 288
-    object qUserMaximumOutputLimitsUSERID: TStringField
+    object qUserMaximumOutputLimitsUSERID: TWideStringField
       FieldName = 'USERID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
     object qUserMaximumOutputLimitsDOWNLOADTYPEID: TIntegerField
       FieldName = 'DOWNLOADTYPEID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object qUserMaximumOutputLimitsDOWNLOADTYPE: TStringField
+    object qUserMaximumOutputLimitsDOWNLOADTYPE: TWideStringField
       FieldName = 'DOWNLOADTYPE'
-      ProviderFlags = []
-      ReadOnly = True
+      Required = True
+      FixedChar = True
       Size = 50
     end
-    object qUserMaximumOutputLimitsMAXALLOWED: TFMTBCDField
+    object qUserMaximumOutputLimitsMAXALLOWED: TFloatField
       FieldName = 'MAXALLOWED'
       Required = True
-      Precision = 20
-      Size = 0
     end
   end
   object dspUserMaximumOutputLimits: TDataSetProvider
@@ -1250,27 +1232,24 @@ object dmUser: TdmUser
     ProviderName = 'dspUserMaximumOutputLimits'
     Left = 680
     Top = 288
-    object cdsUserMaximumOutputLimitsUSERID: TStringField
+    object cdsUserMaximumOutputLimitsUSERID: TWideStringField
       FieldName = 'USERID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+      FixedChar = True
     end
     object cdsUserMaximumOutputLimitsDOWNLOADTYPEID: TIntegerField
       FieldName = 'DOWNLOADTYPEID'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object cdsUserMaximumOutputLimitsDOWNLOADTYPE: TStringField
+    object cdsUserMaximumOutputLimitsDOWNLOADTYPE: TWideStringField
       FieldName = 'DOWNLOADTYPE'
-      ProviderFlags = []
-      ReadOnly = True
+      Required = True
+      FixedChar = True
       Size = 50
     end
-    object cdsUserMaximumOutputLimitsMAXALLOWED: TFMTBCDField
+    object cdsUserMaximumOutputLimitsMAXALLOWED: TFloatField
       FieldName = 'MAXALLOWED'
       Required = True
-      Precision = 20
-      Size = 0
     end
   end
   object dsUserMaximumOutputLimits: TDataSource
@@ -1329,8 +1308,9 @@ object dmUser: TdmUser
     object cdsDevInfoDATESAVED: TSQLTimeStampField
       FieldName = 'DATESAVED'
     end
-    object cdsDevInfoQUERYCHECK: TStringField
+    object cdsDevInfoQUERYCHECK: TWideStringField
       FieldName = 'QUERYCHECK'
+      FixedChar = True
       Size = 4096
     end
   end

@@ -49,7 +49,7 @@ begin
   edEmail.Text := lowercase(Trim(edEmail.Text));
   if (edEmail.Text = '') then begin
     lblInvalid.Caption := 'Email address must not be left blank.';
-    dmUser.SetDeveloperData('Email address must not be left blank.');
+    //dmUser.SetDeveloperData('Email address must not be left blank.');
     Result := False;
   end;
 end;
@@ -78,7 +78,7 @@ begin
     end else
     begin
       lblInvalid.Caption := 'Email address not found in database';
-      dmUser.SetDeveloperData('Email address not found in database');
+      //dmUser.SetDeveloperData('Email address not found in database');
     end;
   end;
   TIsFLogin.Create(WebApplication).Show;

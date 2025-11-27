@@ -3,80 +3,67 @@ unit usrIW_dm;
 interface
 
 uses
-  System.SysUtils, Forms,
-  Classes, FMTBcd, DB, DBClient, Provider, SqlExpr,
-  DBXCommon,  DbxDevartInterbase,  midaslib,
-  WideStrings,
-  Data.DBXFirebird;
+  System.SysUtils, Vcl.Forms,
+  System.Classes, data.FMTBcd, Data.DB, Datasnap.DBClient, Provider, SqlExpr,
+  DBXCommon,  midaslib,
+  System.DateUtils,
+  //DbxSevartInterbase,
+  System.WideStrings,
+  Data.DBXFirebird, DbxDevartInterBase;
+  //, DbxDevartInterBase;
 
 type
   TdmUser = class(TDataModule)
     WebUser: TSQLQuery;
-    WebUserUSERID: TStringField;
-    WebUserUSERPASSWORD: TStringField;
-    WebUserUSERACCESSRIGHTS: TMemoField;
-    WebUserUSERDISPLAYNAME: TStringField;
     dspWebUser: TDataSetProvider;
     cdsWebUser: TClientDataSet;
-    cdsWebUserUSERID: TStringField;
-    cdsWebUserUSERPASSWORD: TStringField;
-    cdsWebUserUSERDISPLAYNAME: TStringField;
-    cdsWebUserUSERACCESSRIGHTS: TMemoField;
     dsWebUser: TDataSource;
     dspUserSpecific: TDataSetProvider;
     cdsUserSpecific: TClientDataSet;
-    cdsUserSpecificUSERID: TStringField;
-    cdsUserSpecificUSERPASSWORD: TStringField;
-    cdsUserSpecificUSERDISPLAYNAME: TStringField;
-    cdsUserSpecificUSERACCESSRIGHTS: TMemoField;
     dsUserSpecific: TDataSource;
     UserInfo: TSQLQuery;
-    UserInfoUSERID: TStringField;
-    UserInfoSOFTWAREID: TStringField;
+    UserInfoUSERID: TWideStringField;
+    UserInfoSOFTWAREID: TWideStringField;
     UserInfoLASTUSED: TSQLTimeStampField;
     UserInfoSESSIONINFO: TBlobField;
     dspUserInfo: TDataSetProvider;
     cdsUserInfo: TClientDataSet;
-    cdsUserInfoUSERID: TStringField;
-    cdsUserInfoSOFTWAREID: TStringField;
+    cdsUserInfoUSERID: TWideStringField;
+    cdsUserInfoSOFTWAREID: TWideStringField;
     cdsUserInfoLASTUSED: TSQLTimeStampField;
     cdsUserInfoSESSIONINFO: TBlobField;
     qUserContact: TSQLQuery;
-    qUserContactUSERID: TStringField;
-    qUserContactLASTNAME: TStringField;
-    qUserContactFIRSTNAME: TStringField;
+    qUserContactUSERID: TWideStringField;
+    qUserContactLASTNAME: TWideStringField;
+    qUserContactFIRSTNAME: TWideStringField;
     qUserContactREGISTRATIONDATE: TSQLTimeStampField;
-    qUserContactEMAILADDRESS: TStringField;
+    qUserContactEMAILADDRESS: TWideStringField;
     dspUserContact: TDataSetProvider;
     cdsUserContact: TClientDataSet;
-    cdsUserContactUSERID: TStringField;
-    cdsUserContactLASTNAME: TStringField;
-    cdsUserContactFIRSTNAME: TStringField;
+    cdsUserContactUSERID: TWideStringField;
+    cdsUserContactLASTNAME: TWideStringField;
+    cdsUserContactFIRSTNAME: TWideStringField;
     cdsUserContactREGISTRATIONDATE: TSQLTimeStampField;
-    cdsUserContactEMAILADDRESS: TStringField;
+    cdsUserContactEMAILADDRESS: TWideStringField;
     NewUser: TSQLQuery;
-    NewUserUSERID: TStringField;
-    NewUserUSERPASSWORD: TStringField;
-    NewUserUSERDISPLAYNAME: TStringField;
-    NewUserUSERACCESSRIGHTS: TMemoField;
+    NewUserUSERID: TWideStringField;
+    NewUserUSERPASSWORD: TWideStringField;
+    NewUserUSERDISPLAYNAME: TWideStringField;
+    NewUserUSERACCESSRIGHTS: TBlobField;
     dspNewUser: TDataSetProvider;
     cdsNewUser: TClientDataSet;
-    cdsNewUserUSERID: TStringField;
-    cdsNewUserUSERPASSWORD: TStringField;
-    cdsNewUserUSERDISPLAYNAME: TStringField;
-    cdsNewUserUSERACCESSRIGHTS: TMemoField;
+    cdsNewUserUSERID: TWideStringField;
+    cdsNewUserUSERPASSWORD: TWideStringField;
+    cdsNewUserUSERDISPLAYNAME: TWideStringField;
+    cdsNewUserUSERACCESSRIGHTS: TBlobField;
     qPrograms: TSQLQuery;
-    qProgramsSOFTWAREID: TStringField;
-    qProgramsSOFTWARENAME: TStringField;
+    qProgramsSOFTWAREID: TWideStringField;
+    qProgramsSOFTWARENAME: TWideStringField;
     dspPrograms: TDataSetProvider;
     cdsPrograms: TClientDataSet;
-    cdsProgramsSOFTWAREID: TStringField;
-    cdsProgramsSOFTWARENAME: TStringField;
+    cdsProgramsSOFTWAREID: TWideStringField;
+    cdsProgramsSOFTWARENAME: TWideStringField;
     qUserSpecific: TSQLQuery;
-    qUserSpecificUSERID: TStringField;
-    qUserSpecificUSERPASSWORD: TStringField;
-    qUserSpecificUSERDISPLAYNAME: TStringField;
-    qUserSpecificUSERACCESSRIGHTS: TMemoField;
     qProgress: TSQLQuery;
     dspProgress: TDataSetProvider;
     cdsProgress: TClientDataSet;
@@ -89,14 +76,12 @@ type
     dspForgotten: TDataSetProvider;
     cdsForgotten: TClientDataSet;
     dsForgotten: TDataSource;
-    cdsForgottenUSERID: TStringField;
     dsqForgotten: TDataSource;
     qForgottenDetails: TSQLQuery;
     cdsForgottenDetails: TClientDataSet;
     dsForgottenDetails: TDataSource;
     cdsForgottenqForgottenDetails: TDataSetField;
-    cdsForgottenDetailsUSERID: TStringField;
-    cdsForgottenDetailsUSERPASSWORD: TStringField;
+    cdsForgottenDetailsUSERPASSWORD: TWideStringField;
     qCookieInfo: TSQLQuery;
     dspCookieInfo: TDataSetProvider;
     cdsCookieInfo: TClientDataSet;
@@ -113,19 +98,9 @@ type
     dsMemberType: TDataSource;
     dsAccounts: TDataSource;
     dsUserAccount: TDataSource;
-    cdsUserAccountUSERID: TStringField;
-    cdsUserAccountSOFTWAREID: TStringField;
-    cdsUserAccountACCOUNTID: TStringField;
-    cdsAccountsACCOUNTID: TStringField;
-    cdsAccountsACCOUNTNAME: TStringField;
     cdsAccountsDATESTARTED: TSQLTimeStampField;
-    cdsAccountsMEMTYPEID: TStringField;
     cdsAccountsVALIDUNTIL: TSQLTimeStampField;
-    cdsMemberTypeMEMTYPEID: TStringField;
-    cdsMemberTypeMEMBERTYPE: TStringField;
     cdsMemberTypeSUBSCRIPTION: TFloatField;
-    cdsUserAccountSOFTWARENAME: TStringField;
-    cdsUserAccountUSEACCOUNTS: TStringField;
     qMemberTypes: TSQLQuery;
     dspMemberTypes: TDataSetProvider;
     cdsMemberTypes: TClientDataSet;
@@ -134,8 +109,6 @@ type
     dspThisProgram: TDataSetProvider;
     cdsThisProgram: TClientDataSet;
     dsThisProgram: TDataSource;
-    cdsMemberTypesMEMTYPEID: TStringField;
-    cdsMemberTypesMEMBERTYPE: TStringField;
     cdsMemberTypesSUBSCRIPTION: TFloatField;
     qYears: TSQLQuery;
     qMonths: TSQLQuery;
@@ -147,10 +120,8 @@ type
     dsYears: TDataSource;
     cdsYearsYEARNO: TSmallintField;
     cdsMonthsMONTHNO: TSmallintField;
-    cdsMonthsMONTHID: TStringField;
-    cdsMonthsMONTHNAME: TStringField;
-    UserInfoBROWSERUSED: TStringField;
-    cdsUserInfoBROWSERUSED: TStringField;
+    UserInfoBROWSERUSED: TWideStringField;
+    cdsUserInfoBROWSERUSED: TWideStringField;
     sqlcWebUser: TSQLConnection;
     qInsertDevInfo: TSQLQuery;
     qUserMaxOutputRecords: TSQLQuery;
@@ -161,24 +132,7 @@ type
     dspUserMaximumOutputLimits: TDataSetProvider;
     cdsUserMaximumOutputLimits: TClientDataSet;
     dsUserMaximumOutputLimits: TDataSource;
-    cdsUserMaxOutputRecordsUSERID: TStringField;
-    cdsUserMaxOutputRecordsDOWNLOADTYPEID: TIntegerField;
-    cdsUserMaxOutputRecordsMAXALLOWED: TFMTBCDField;
-    cdsUserMaxOutputRecordsDOWNLOADTYPE: TStringField;
-    qUserMaxOutputRecordsUSERID: TStringField;
-    qUserMaxOutputRecordsDOWNLOADTYPEID: TIntegerField;
-    qUserMaxOutputRecordsDOWNLOADTYPE: TStringField;
-    qUserMaxOutputRecordsMAXALLOWED: TFMTBCDField;
     qInsertUserMaxOutputRecord: TSQLQuery;
-    cdsUserMaximumOutputLimitsUSERID: TStringField;
-    cdsUserMaximumOutputLimitsDOWNLOADTYPEID: TIntegerField;
-    cdsUserMaximumOutputLimitsDOWNLOADTYPE: TStringField;
-    cdsUserMaximumOutputLimitsMAXALLOWED: TFMTBCDField;
-    qUserMaximumOutputLimitsUSERID: TStringField;
-    qUserMaximumOutputLimitsDOWNLOADTYPEID: TIntegerField;
-    qUserMaximumOutputLimitsDOWNLOADTYPE: TStringField;
-    qUserMaximumOutputLimitsMAXALLOWED: TFMTBCDField;
-    cdsUserAccountMEMTYPEID: TStringField;
     qDevInfo: TSQLQuery;
     dspDevInfo: TDataSetProvider;
     cdsDevInfo: TClientDataSet;
@@ -189,33 +143,78 @@ type
     dsMaxDevInfo: TDataSource;
     SQLMonitor1: TSQLMonitor;
     cdsDevInfoDATESAVED: TSQLTimeStampField;
-    cdsDevInfoQUERYCHECK: TStringField;
     cdsDevInfoDEVINFOORDER: TIntegerField;
     qTest: TSQLQuery;
-    qProgressSOFTWAREID: TStringField;
+    qProgressSOFTWAREID: TWideStringField;
     qProgressPROGRESSID: TIntegerField;
     qProgressPROGRESSDATE: TSQLTimeStampField;
-    qProgressPROGRESSDETAILS: TMemoField;
-    cdsProgressSOFTWAREID: TStringField;
+    cdsProgressSOFTWAREID: TWideStringField;
     cdsProgressPROGRESSID: TIntegerField;
     cdsProgressPROGRESSDATE: TSQLTimeStampField;
-    cdsProgressPROGRESSDETAILS: TMemoField;
-    qNumTimesUsedSOFTWAREID: TStringField;
-    qNumTimesUsedNUMTIMESUSED: TIntegerField;
-    cdsNumTimesUsedSOFTWAREID: TStringField;
-    cdsNumTimesUsedNUMTIMESUSED: TIntegerField;
-    cdsCookieInfoUSERID: TStringField;
-    cdsCookieInfoSOFTWAREID: TStringField;
+    cdsCookieInfoUSERID: TWideStringField;
+    cdsCookieInfoSOFTWAREID: TWideStringField;
     cdsCookieInfoLASTUSED: TSQLTimeStampField;
     cdsCookieInfoCOOKIEINFO: TMemoField;
-    cdsThisProgramSOFTWAREID: TStringField;
-    cdsThisProgramSOFTWARENAME: TStringField;
-    cdsThisProgramUSEACCOUNTS: TStringField;
-    cdsThisProgramDEFAULTACCOUNTID: TStringField;
-    cdsThisProgramEMAILDEVELOPER: TStringField;
-    cdsThisProgramEMAILADMINISTRATOR: TStringField;
-    cdsThisProgramURLONTERMINATE: TStringField;
+    WebUserUSERID: TWideStringField;
+    WebUserUSERPASSWORD: TWideStringField;
+    WebUserUSERDISPLAYNAME: TWideStringField;
+    WebUserUSERACCESSRIGHTS: TBlobField;
+    cdsWebUserUSERID: TWideStringField;
+    cdsWebUserUSERPASSWORD: TWideStringField;
+    cdsWebUserUSERDISPLAYNAME: TWideStringField;
+    cdsWebUserUSERACCESSRIGHTS: TBlobField;
+    qNumTimesUsedSOFTWAREID: TWideStringField;
+    qNumTimesUsedNUMTIMESUSED: TIntegerField;
+    cdsNumTimesUsedSOFTWAREID: TWideStringField;
+    cdsNumTimesUsedNUMTIMESUSED: TIntegerField;
+    cdsForgottenUSERID: TWideStringField;
+    cdsForgottenDetailsUSERID: TWideStringField;
+    cdsUserAccountUSERID: TWideStringField;
+    cdsUserAccountSOFTWAREID: TWideStringField;
+    cdsUserAccountACCOUNTID: TWideStringField;
+    cdsUserAccountSOFTWARENAME: TWideStringField;
+    cdsUserAccountUSEACCOUNTS: TWideStringField;
+    cdsUserAccountMEMTYPEID: TWideStringField;
+    cdsAccountsACCOUNTID: TWideStringField;
+    cdsAccountsACCOUNTNAME: TWideStringField;
+    cdsAccountsMEMTYPEID: TWideStringField;
+    cdsMemberTypeMEMTYPEID: TWideStringField;
+    cdsMemberTypeMEMBERTYPE: TWideStringField;
+    cdsMonthsMONTHID: TWideStringField;
+    cdsMonthsMONTHNAME: TWideStringField;
+    qUserMaximumOutputLimitsUSERID: TWideStringField;
+    qUserMaximumOutputLimitsDOWNLOADTYPEID: TIntegerField;
+    qUserMaximumOutputLimitsDOWNLOADTYPE: TWideStringField;
+    qUserMaximumOutputLimitsMAXALLOWED: TFloatField;
+    cdsUserMaximumOutputLimitsUSERID: TWideStringField;
+    cdsUserMaximumOutputLimitsDOWNLOADTYPEID: TIntegerField;
+    cdsUserMaximumOutputLimitsDOWNLOADTYPE: TWideStringField;
+    cdsUserMaximumOutputLimitsMAXALLOWED: TFloatField;
+    cdsDevInfoQUERYCHECK: TWideStringField;
+    cdsMemberTypesMEMTYPEID: TWideStringField;
+    cdsMemberTypesMEMBERTYPE: TWideStringField;
+    cdsThisProgramSOFTWAREID: TWideStringField;
+    cdsThisProgramSOFTWARENAME: TWideStringField;
+    cdsThisProgramUSEACCOUNTS: TWideStringField;
+    cdsThisProgramDEFAULTACCOUNTID: TWideStringField;
+    cdsThisProgramEMAILDEVELOPER: TWideStringField;
+    cdsThisProgramEMAILADMINISTRATOR: TWideStringField;
+    cdsThisProgramURLONTERMINATE: TWideStringField;
+    qUserSpecificUSERID: TWideStringField;
+    qUserSpecificUSERPASSWORD: TWideStringField;
+    qUserSpecificUSERDISPLAYNAME: TWideStringField;
+    qUserSpecificUSERACCESSRIGHTS: TBlobField;
+    cdsUserSpecificUSERID: TWideStringField;
+    cdsUserSpecificUSERPASSWORD: TWideStringField;
+    cdsUserSpecificUSERDISPLAYNAME: TWideStringField;
+    cdsUserSpecificUSERACCESSRIGHTS: TBlobField;
     cdsMaxDevInfoMAXIMUM: TIntegerField;
+    cdsUserMaxOutputRecordsUSERID: TWideStringField;
+    cdsUserMaxOutputRecordsDOWNLOADTYPEID: TIntegerField;
+    cdsUserMaxOutputRecordsDOWNLOADTYPE: TWideStringField;
+    cdsUserMaxOutputRecordsMAXALLOWED: TFMTBCDField;
+    qProgressPROGRESSDETAILS: TBlobField;
+    cdsProgressPROGRESSDETAILS: TBlobField;
     procedure cdsAnyReconcileError(DataSet: TCustomClientDataSet;
       E: EReconcileError; UpdateKind: TUpdateKind;
       var Action: TReconcileAction);
@@ -278,11 +277,9 @@ end;
 
 function TdmUser.GetUTCDateTime: TDateTime;
 var
-  //UTC: TSystemTime;
   UTC: TDateTime;
 begin
-  UTC := Now;
-  //result := SystemTimeToDateTime(Now);
+  UTC := TDateTime.NowUTC;
   result := UTC;
 end;
 
@@ -298,7 +295,7 @@ begin
     dmUser.cdsUserInfo.Append;
     dmUser.cdsUserInfoUSERID.AsString := UserSession.USERID;
     dmUser.cdsUserInfoSOFTWAREID.AsString := UserSession.ThisProgram;
-    //dmUser.cdsUserInfoLASTUSED.AsDateTime := Now;
+    //dmUser.cdsUserInfoLASTUSED.AsDateTime := TDateTime.NowUTC;
     dmUser.cdsUserInfoLASTUSED.AsDateTime := dmUser.GetUTCDateTime;
     dmUser.cdsUserInfoSESSIONINFO.AsVariant := SQLMemoField;
     dmUser.cdsUserInfoBROWSERUSED.AsString := WebApplication.Request.UserAgent;
@@ -306,7 +303,7 @@ begin
   end else
   begin
     dmUser.cdsUserInfo.Edit;
-    //dmUser.cdsUserInfoLASTUSED.AsDateTime := Now;
+    //dmUser.cdsUserInfoLASTUSED.AsDateTime := TDateTime.NowUTC;
     dmUser.cdsUserInfoLASTUSED.AsDateTime := dmUser.GetUTCDateTime;
     dmUser.cdsUserInfoSESSIONINFO.AsVariant := SQLMemoField;
     dmUser.cdsUserInfoBROWSERUSED.AsString := WebApplication.Request.UserAgent;
@@ -329,7 +326,7 @@ begin
       dmUser.cdsMaxDevInfo.Open;
       tMax := dmUser.cdsMaxDevInfoMAXIMUM.AsInteger+1;
       dmUser.cdsMaxDevInfo.Close;
-      //tNow := Now;
+      //tNow := TDateTime.NowUTC;
       //tNow := dmUser.GetUTCDateTime;
       //DateTimeToString(tDateSavedStr,'YYYY-MM-DD HH:NN:SS.nnnn',tNow);
       dmUser.cdsDevInfo.Close;
@@ -337,7 +334,7 @@ begin
       dmUser.cdsDevInfo.Open;
       dmUser.cdsDevInfo.Append;
       dmUser.cdsDevInfoDevInfoOrder.AsInteger := tMax;
-      dmUser.cdsDevInfoDATESAVED.AsDateTime := Now;
+      dmUser.cdsDevInfoDATESAVED.AsDateTime := TDateTime.NowUTC;
       //dmUser.cdsDevInfoDATESAVED.AsDateTime := dmUser.GetUTCDateTime;
       dmUser.cdsDevInfoQUERYCHECK.AsString := tmpStrList;
       dmUser.cdsDevInfo.Post;
@@ -354,14 +351,14 @@ end;
 
 procedure TdmUser.SetDeveloperData(tmpStrList : String);
 var
-  tMax : longint;
+  tMax : integer;
   tNow : TDateTime;
   TD: TDBXTransaction;
   //tDateSavedStr : string;
   //tDateSaved : TDateTime;
 begin
-    if ((UserSession.IsDeveloper) and (UserSession.LoggedIn)) then
-    begin
+    //if ((UserSession.IsDeveloper) and (UserSession.LoggedIn)) then
+    //begin
       dmUser.cdsMaxDevInfo.Open;
       tMax := dmUser.cdsMaxDevInfoMAXIMUM.AsInteger+1;
       dmUser.cdsMaxDevInfo.Close;
@@ -383,7 +380,7 @@ begin
           WebApplication.ShowMessage('Not able to insert '+tmpStrList);
           dmUser.sqlcWebUser.RollbackFreeAndNil(TD); //on failure, undo the changes;
         end;
-    end;
+    //end;
 end;
 
 procedure TdmUser.InsertDeveloperData(tmpStrList : String);
@@ -398,7 +395,7 @@ begin
   //try
     if ((UserSession.IsDeveloper) and (UserSession.LoggedIn)) then
     begin
-      //tNow := Now;
+      //tNow := TDateTime.NowUTC;
       tNow := dmUser.GetUTCDateTime;
       tDateSavedStr := 'yyyy-mm-dd';
       DateTimeToString(tDateSavedStr,'yyyy-mm-dd',tNow);
@@ -426,12 +423,13 @@ end;
 
 function TdmUser.GetUserRowLimit(USERID : string; DataTypeID : integer) : integer;
 const
-  DefaultMaxAllowed = 100;
+  DefaultMaxAllowed = 5000;
 //var
   //TD: TDBXTransaction;
 begin
   dmUser.qUserMaxOutputRecords.Close;
-  dmUser.qUserMaxOutputRecords.ParamByName('USERID').AsString := USERID;
+  //dmUser.SetDeveloperData(dmUser.qUserMaxOutputRecords.SQL.Text);
+  dmUser.qUserMaxOutputRecords.ParamByName('USERID').AsWideString := USERID;
   dmUser.qUserMaxOutputRecords.ParamByName('DownloadTypeID').AsInteger := DataTypeID;
   dmUser.cdsUserMaxOutputRecords.Close;
   dmUser.cdsUserMaxOutputRecords.Open;
@@ -443,7 +441,7 @@ begin
   begin
     SetUserDownloadLimits(USERID,DataTypeID);
     dmUser.qUserMaxOutputRecords.Close;
-    dmUser.qUserMaxOutputRecords.ParamByName('USERID').AsString := USERID;
+    dmUser.qUserMaxOutputRecords.ParamByName('USERID').AsWideString := USERID;
     dmUser.qUserMaxOutputRecords.ParamByName('DownloadTypeID').AsInteger := DataTypeID;
     dmUser.cdsUserMaxOutputRecords.Close;
     dmUser.cdsUserMaxOutputRecords.Open;
