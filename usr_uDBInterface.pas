@@ -9,8 +9,7 @@ unit usr_uDBInterface;
 interface
 
 uses
-  usrIW_dm,
-  Classes;
+  Classes, usrIW_dm;
 
   // Check user name and password
   function CheckUser(AUserID, APassword : string) : boolean;
@@ -34,8 +33,7 @@ uses
 implementation
 
 uses
-  ServerController,
-  SysUtils, usr_constants;
+  SysUtils, usr_constants, ServerController;
 
 function CheckUser(AUserID, APassword : string) : boolean;
 begin

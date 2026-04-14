@@ -4,13 +4,11 @@ interface
 
 uses
   System.SysUtils, Vcl.Forms,
-  System.Classes, data.FMTBcd, Data.DB, Datasnap.DBClient, Provider, SqlExpr,
+  System.Classes, Data.FMTBcd, Data.DB, Datasnap.DBClient, Provider, SqlExpr,
   DBXCommon,  midaslib,
   System.DateUtils,
-  //DbxSevartInterbase,
   System.WideStrings,
   Data.DBXFirebird, DbxDevartInterBase;
-  //, DbxDevartInterBase;
 
 type
   TdmUser = class(TDataModule)
@@ -238,7 +236,7 @@ implementation
 uses
   IWInit,
   ServerController,
-  Variants;
+  Variants, UserSessionUnit;
 
 // Since we are threaded we cannot use global variables to store form / datamodule references
 // so we store them in WebApplication.Data and we could reference that each time, but by creating
@@ -253,7 +251,8 @@ uses
 
 function dmUser: TdmUser;
 begin
-  Result := TUserSession(WebApplication.Data).dmUser;
+  //Result := TUserSession(WebApplication.Data).dmUser;
+  Result := TIWUserSession(WebApplication.Data).dmUser;
 end;
 
 procedure TdmUser.cdsAnyReconcileError(DataSet: TCustomClientDataSet;

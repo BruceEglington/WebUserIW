@@ -1,8 +1,12 @@
 object ISFRegister: TISFRegister
   Left = 0
   Top = 0
-  Width = 856
-  Height = 683
+  Width = 1070
+  Height = 854
+  Margins.Left = 4
+  Margins.Top = 4
+  Margins.Right = 4
+  Margins.Bottom = 4
   RenderInvisibleControls = False
   AllowPageAccess = True
   ConnectionMode = cmAny
@@ -19,14 +23,19 @@ object ISFRegister: TISFRegister
   StyleSheet.Filename = 'styles.css'
   ShowHint = True
   OnDefaultAction = lnkSubmitClick
+  PixelsPerInch = 120
   DesignLeft = 2
   DesignTop = 2
   object rectMain: TIWRectangle
     AlignWithMargins = False
-    Left = 83
+    Left = 104
     Top = 0
-    Width = 773
-    Height = 683
+    Width = 966
+    Height = 854
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alClient
     Font.PxSize = 13
     Font.Color = clWebBLACK
@@ -35,15 +44,17 @@ object ISFRegister: TISFRegister
     Color = clWebWHITE
     Alignment = taLeftJustify
     VAlign = vaMiddle
-    ExplicitWidth = 678
-    ExplicitHeight = 487
   end
   object rectLeft: TIWRectangle
     AlignWithMargins = False
     Left = 0
     Top = 0
-    Width = 83
-    Height = 683
+    Width = 104
+    Height = 854
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alLeft
     ZIndex = 1
     Font.PxSize = 13
@@ -53,14 +64,17 @@ object ISFRegister: TISFRegister
     Color = clWebLAVENDER
     Alignment = taLeftJustify
     VAlign = vaMiddle
-    ExplicitHeight = 487
   end
   object IWLabel5: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 166
-    Width = 71
-    Height = 14
+    Left = 215
+    Top = 208
+    Width = 89
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -72,10 +86,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel6: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 236
-    Width = 132
-    Height = 14
+    Left = 215
+    Top = 295
+    Width = 165
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -87,10 +105,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel7: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 96
-    Width = 56
-    Height = 14
+    Left = 215
+    Top = 120
+    Width = 70
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -102,10 +124,14 @@ object ISFRegister: TISFRegister
   end
   object edRegisterDisplayName: TIWEdit
     AlignWithMargins = False
-    Left = 172
-    Top = 324
-    Width = 180
-    Height = 21
+    Left = 215
+    Top = 405
+    Width = 225
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
@@ -119,10 +145,14 @@ object ISFRegister: TISFRegister
   end
   object edRegisterPassword: TIWEdit
     AlignWithMargins = False
-    Left = 172
-    Top = 182
-    Width = 180
-    Height = 21
+    Left = 215
+    Top = 228
+    Width = 225
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
@@ -138,10 +168,14 @@ object ISFRegister: TISFRegister
   end
   object edRegisterRepeatPassword: TIWEdit
     AlignWithMargins = False
-    Left = 172
-    Top = 252
-    Width = 180
-    Height = 21
+    Left = 215
+    Top = 315
+    Width = 225
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
@@ -157,10 +191,14 @@ object ISFRegister: TISFRegister
   end
   object edRegisterUserID: TIWEdit
     AlignWithMargins = False
-    Left = 172
-    Top = 112
-    Width = 180
-    Height = 21
+    Left = 215
+    Top = 140
+    Width = 225
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
@@ -174,10 +212,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel10: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 308
-    Width = 97
-    Height = 14
+    Left = 215
+    Top = 385
+    Width = 121
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -189,10 +231,14 @@ object ISFRegister: TISFRegister
   end
   object lblUserIDError: TIWLabel
     AlignWithMargins = False
-    Left = 374
-    Top = 114
-    Width = 106
-    Height = 14
+    Left = 468
+    Top = 143
+    Width = 132
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -205,10 +251,14 @@ object ISFRegister: TISFRegister
   end
   object rectTitle: TIWRectangle
     AlignWithMargins = False
-    Left = 96
-    Top = 42
-    Width = 633
-    Height = 36
+    Left = 120
+    Top = 53
+    Width = 791
+    Height = 45
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.PxSize = 13
     Font.Color = clWebBLACK
@@ -220,10 +270,14 @@ object ISFRegister: TISFRegister
   end
   object lnkSubmit: TIWLink
     AlignWithMargins = False
-    Left = 172
-    Top = 624
-    Width = 65
-    Height = 17
+    Left = 215
+    Top = 780
+    Width = 81
+    Height = 21
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     RenderSize = False
     StyleRenderOptions.RenderSize = False
@@ -243,10 +297,14 @@ object ISFRegister: TISFRegister
   end
   object lblRegisterNew: TIWLabel
     AlignWithMargins = False
-    Left = 164
-    Top = 44
-    Width = 301
-    Height = 29
+    Left = 205
+    Top = 55
+    Width = 376
+    Height = 36
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 3
     Font.FontName = 'Verdana'
     Font.Size = 18
@@ -259,10 +317,14 @@ object ISFRegister: TISFRegister
   end
   object lblEMailError: TIWLabel
     AlignWithMargins = False
-    Left = 464
-    Top = 399
-    Width = 93
-    Height = 14
+    Left = 580
+    Top = 499
+    Width = 116
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -275,10 +337,14 @@ object ISFRegister: TISFRegister
   end
   object lblPassError: TIWLabel
     AlignWithMargins = False
-    Left = 374
-    Top = 186
-    Width = 89
-    Height = 14
+    Left = 468
+    Top = 233
+    Width = 111
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -291,10 +357,14 @@ object ISFRegister: TISFRegister
   end
   object lblConfirmPassError: TIWLabel
     AlignWithMargins = False
-    Left = 374
-    Top = 254
-    Width = 149
-    Height = 14
+    Left = 468
+    Top = 318
+    Width = 186
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -307,10 +377,14 @@ object ISFRegister: TISFRegister
   end
   object lblDisplayNameError: TIWLabel
     AlignWithMargins = False
-    Left = 374
-    Top = 326
-    Width = 154
-    Height = 14
+    Left = 468
+    Top = 408
+    Width = 192
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -323,10 +397,14 @@ object ISFRegister: TISFRegister
   end
   object lblLastnameError: TIWLabel
     AlignWithMargins = False
-    Left = 374
-    Top = 470
-    Width = 128
-    Height = 14
+    Left = 468
+    Top = 588
+    Width = 160
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -339,10 +417,14 @@ object ISFRegister: TISFRegister
   end
   object lblfirstnameError: TIWLabel
     AlignWithMargins = False
-    Left = 374
-    Top = 542
-    Width = 127
-    Height = 14
+    Left = 468
+    Top = 678
+    Width = 158
+    Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -355,10 +437,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel8: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 380
-    Width = 107
-    Height = 14
+    Left = 215
+    Top = 475
+    Width = 134
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -370,10 +456,14 @@ object ISFRegister: TISFRegister
   end
   object edRegisterEMail: TIWEdit
     AlignWithMargins = False
-    Left = 172
-    Top = 396
-    Width = 277
-    Height = 21
+    Left = 215
+    Top = 495
+    Width = 346
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
@@ -387,10 +477,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel9: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 452
-    Width = 70
-    Height = 14
+    Left = 215
+    Top = 565
+    Width = 88
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -402,10 +496,14 @@ object ISFRegister: TISFRegister
   end
   object edRegisterLastname: TIWEdit
     AlignWithMargins = False
-    Left = 172
-    Top = 468
-    Width = 180
-    Height = 21
+    Left = 215
+    Top = 585
+    Width = 225
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
@@ -419,10 +517,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel11: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 524
-    Width = 72
-    Height = 14
+    Left = 215
+    Top = 655
+    Width = 90
+    Height = 18
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -434,10 +536,14 @@ object ISFRegister: TISFRegister
   end
   object edRegisterFirstname: TIWEdit
     AlignWithMargins = False
-    Left = 172
-    Top = 540
-    Width = 180
-    Height = 21
+    Left = 215
+    Top = 675
+    Width = 225
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     NonEditableAsLabel = True
@@ -451,10 +557,14 @@ object ISFRegister: TISFRegister
   end
   object IWMemo1: TIWMemo
     AlignWithMargins = False
-    Left = 560
-    Top = 112
-    Width = 185
-    Height = 121
+    Left = 700
+    Top = 140
+    Width = 231
+    Height = 151
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     StyleRenderOptions.RenderBorder = False
     BGColor = clNone
     Editable = False
@@ -476,10 +586,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel1: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 136
-    Width = 213
-    Height = 13
+    Left = 215
+    Top = 170
+    Width = 266
+    Height = 16
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Font.FontName = 'Verdana'
     Font.Size = 8
     Font.Style = [fsItalic]
@@ -490,10 +604,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel2: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 204
-    Width = 205
-    Height = 13
+    Left = 215
+    Top = 255
+    Width = 256
+    Height = 16
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Font.FontName = 'Verdana'
     Font.Size = 8
     Font.Style = [fsItalic]
@@ -504,10 +622,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel3: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 346
-    Width = 213
-    Height = 13
+    Left = 215
+    Top = 433
+    Width = 266
+    Height = 16
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Font.FontName = 'Verdana'
     Font.Size = 8
     Font.Style = [fsItalic]
@@ -518,10 +640,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel4: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 418
-    Width = 221
-    Height = 13
+    Left = 215
+    Top = 523
+    Width = 276
+    Height = 16
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Font.FontName = 'Verdana'
     Font.Size = 8
     Font.Style = [fsItalic]
@@ -532,10 +658,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel12: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 490
-    Width = 213
-    Height = 13
+    Left = 215
+    Top = 613
+    Width = 266
+    Height = 16
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Font.FontName = 'Verdana'
     Font.Size = 8
     Font.Style = [fsItalic]
@@ -546,10 +676,14 @@ object ISFRegister: TISFRegister
   end
   object IWLabel13: TIWLabel
     AlignWithMargins = False
-    Left = 172
-    Top = 562
-    Width = 213
-    Height = 13
+    Left = 215
+    Top = 703
+    Width = 266
+    Height = 16
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Font.FontName = 'Verdana'
     Font.Size = 8
     Font.Style = [fsItalic]

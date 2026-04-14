@@ -5,7 +5,7 @@ interface
 uses
   Classes, SysUtils, IWAppForm, IWApplication, IWTypes,
   Controls, Forms, IWCompLabel, IWBaseControl,
-  IWControl, IWCompEdit, IWCompButton, IWCompMemo, 
+  IWControl, IWCompEdit, IWCompButton, IWCompMemo,
   IWCompRectangle, IWHTMLControls,
   IWVCLBaseControl, IWBaseHTMLControl;
 
@@ -44,9 +44,9 @@ implementation
 {$R *.dfm}
 
 uses
-  usr_uDBInterface, usr_uRegister,
-  ServerController, usr_uForgotten, usr_uChangeDetails, usr_uRenew,
-  usr_constants, usr_cookies, usrIW_dm;
+  usr_uRegister,
+  usr_uForgotten, usr_uChangeDetails,
+  usr_constants, usr_cookies, usrIW_dm, usr_uDBInterface, ServerController;
 
 procedure TISFLogin.IWAppFormCreate(Sender: TObject);
 begin
@@ -112,14 +112,14 @@ begin
       //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['LibraryName']);
       //dmUser.SetDeveloperData(dmOpt.sqlcDateview.Params.Values['CharSet']);
 
-      if CheckUserPayedUp(UserSession.UserID, UserSession.ThisProgram) then
-      begin
-        UserSession.AfterLogin;
-      end else
-      begin
-        TISFRenew.Create(WebApplication).Show;
-        Release;
-      end;
+      //if CheckUserPayedUp(UserSession.UserID, UserSession.ThisProgram) then
+      //begin
+       UserSession.AfterLogin;
+      //end else
+      //begin
+      //  TISFRenew.Create(WebApplication).Show;
+      //  Release;
+      //end;
       //dmUser.SetDeveloperData('after return from AfterLogin');
     //end else
     //begin

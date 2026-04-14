@@ -1,8 +1,12 @@
 object ISFLogin: TISFLogin
   Left = 0
   Top = 0
-  Width = 808
-  Height = 480
+  Width = 1010
+  Height = 600
+  Margins.Left = 4
+  Margins.Top = 4
+  Margins.Right = 4
+  Margins.Bottom = 4
   RenderInvisibleControls = False
   AllowPageAccess = True
   ConnectionMode = cmAny
@@ -21,14 +25,19 @@ object ISFLogin: TISFLogin
   StyleSheet.Filename = 'styles.css'
   ShowHint = True
   OnDefaultAction = lnkSignInClick
+  PixelsPerInch = 120
   DesignLeft = 2
   DesignTop = 2
   object rectMain: TIWRectangle
     AlignWithMargins = False
-    Left = 83
+    Left = 104
     Top = 0
-    Width = 725
-    Height = 480
+    Width = 906
+    Height = 600
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alClient
     Font.PxSize = 13
     Font.Color = clWebBLACK
@@ -40,10 +49,14 @@ object ISFLogin: TISFLogin
   end
   object edUserID: TIWEdit
     AlignWithMargins = False
-    Left = 191
-    Top = 132
-    Width = 177
-    Height = 21
+    Left = 239
+    Top = 165
+    Width = 221
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     Font.FontName = 'Verdana'
@@ -54,10 +67,14 @@ object ISFLogin: TISFLogin
   end
   object edPassword: TIWEdit
     AlignWithMargins = False
-    Left = 191
-    Top = 204
-    Width = 177
-    Height = 21
+    Left = 239
+    Top = 255
+    Width = 221
+    Height = 26
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     StyleRenderOptions.RenderBorder = False
     Font.FontName = 'Verdana'
@@ -71,10 +88,14 @@ object ISFLogin: TISFLogin
   end
   object IWLabel2: TIWLabel
     AlignWithMargins = False
-    Left = 191
-    Top = 116
+    Left = 239
+    Top = 145
     Width = 56
     Height = 14
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -86,10 +107,14 @@ object ISFLogin: TISFLogin
   end
   object IWLabel3: TIWLabel
     AlignWithMargins = False
-    Left = 191
-    Top = 188
+    Left = 239
+    Top = 235
     Width = 71
     Height = 14
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -101,10 +126,14 @@ object ISFLogin: TISFLogin
   end
   object lblUserInvalid: TIWLabel
     AlignWithMargins = False
-    Left = 388
-    Top = 132
+    Left = 485
+    Top = 165
     Width = 104
     Height = 14
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -119,8 +148,12 @@ object ISFLogin: TISFLogin
     AlignWithMargins = False
     Left = 0
     Top = 0
-    Width = 83
-    Height = 480
+    Width = 104
+    Height = 600
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Align = alLeft
     ZIndex = 1
     Font.PxSize = 13
@@ -133,10 +166,14 @@ object ISFLogin: TISFLogin
   end
   object rectTitle: TIWRectangle
     AlignWithMargins = False
-    Left = 116
-    Top = 36
-    Width = 633
-    Height = 36
+    Left = 145
+    Top = 45
+    Width = 791
+    Height = 45
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.PxSize = 13
     Font.Color = clWebBLACK
@@ -148,10 +185,14 @@ object ISFLogin: TISFLogin
   end
   object lblSignIn: TIWLabel
     AlignWithMargins = False
-    Left = 184
-    Top = 38
+    Left = 230
+    Top = 48
     Width = 94
     Height = 29
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 3
     Font.FontName = 'Verdana'
     Font.Size = 18
@@ -164,10 +205,14 @@ object ISFLogin: TISFLogin
   end
   object lnkSignIn: TIWLink
     AlignWithMargins = False
-    Left = 196
-    Top = 260
-    Width = 89
-    Height = 17
+    Left = 245
+    Top = 325
+    Width = 111
+    Height = 21
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     RenderSize = False
     StyleRenderOptions.RenderSize = False
@@ -187,10 +232,14 @@ object ISFLogin: TISFLogin
   end
   object lnkRegister: TIWLink
     AlignWithMargins = False
-    Left = 196
-    Top = 320
-    Width = 65
-    Height = 17
+    Left = 245
+    Top = 400
+    Width = 81
+    Height = 21
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     RenderSize = False
     StyleRenderOptions.RenderSize = False
@@ -210,10 +259,14 @@ object ISFLogin: TISFLogin
   end
   object lblRegister: TIWLabel
     AlignWithMargins = False
-    Left = 196
-    Top = 302
+    Left = 245
+    Top = 378
     Width = 287
     Height = 14
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -224,10 +277,14 @@ object ISFLogin: TISFLogin
   end
   object lblPassInvalid: TIWLabel
     AlignWithMargins = False
-    Left = 388
-    Top = 204
+    Left = 485
+    Top = 255
     Width = 104
     Height = 14
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     Font.FontName = 'Verdana'
     Font.Size = 9
@@ -240,10 +297,14 @@ object ISFLogin: TISFLogin
   end
   object lnkForgotten: TIWLink
     AlignWithMargins = False
-    Left = 470
-    Top = 260
-    Width = 231
-    Height = 17
+    Left = 588
+    Top = 325
+    Width = 288
+    Height = 21
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     RenderSize = False
     StyleRenderOptions.RenderSize = False
@@ -263,10 +324,14 @@ object ISFLogin: TISFLogin
   end
   object lnkChange: TIWLink
     AlignWithMargins = False
-    Left = 470
-    Top = 320
-    Width = 297
-    Height = 17
+    Left = 588
+    Top = 400
+    Width = 371
+    Height = 21
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     ZIndex = 2
     RenderSize = False
     StyleRenderOptions.RenderSize = False
@@ -286,10 +351,14 @@ object ISFLogin: TISFLogin
   end
   object IWLabel1: TIWLabel
     AlignWithMargins = False
-    Left = 288
-    Top = 400
+    Left = 360
+    Top = 500
     Width = 297
     Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Alignment = taCenter
     Font.PxSize = 13
     Font.Color = clWebRED
@@ -299,10 +368,14 @@ object ISFLogin: TISFLogin
   end
   object IWLabel4: TIWLabel
     AlignWithMargins = False
-    Left = 316
-    Top = 416
+    Left = 395
+    Top = 520
     Width = 230
     Height = 17
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
     Alignment = taCenter
     Font.PxSize = 13
     Font.Color = clWebRED
