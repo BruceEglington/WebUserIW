@@ -1081,8 +1081,7 @@ object dmUser: TdmUser
       'ProductName=DevartFirebird'
       'DriverUnit=DbxDevartInterBase'
       'Charset=UTF8'
-      'UseUnicode=true'
-      '')
+      'UseUnicode=true')
     Left = 32
     Top = 8
   end
